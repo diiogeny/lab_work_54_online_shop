@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.title }}</title>
+</head>
+<body>
+    <h1>{{ product.title }}</h1>
+    <p>Category: {{ product.category.title if product.category else "No category" }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <p>Description: {{ product.description }}</p>
+    <p>Added on: {{ product.created_at }}</p>
+    <img src="{{ product.image_url }}" alt="{{ product.title }}" style="width:300px;height:300px;">
+    <br>
+    <a href="{% url 'products_list' %}">Back to Products List</a>
+</body>
+</html>

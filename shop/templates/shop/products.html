@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products List</title>
+</head>
+<body>
+    <h1>Products List</h1>
+    <a href="{% url 'add_product' %}">Add Product</a>
+    <a href="{% url 'add_category' %}">Add Category</a>
+    <ul>
+        {% for product in products %}
+        <li>
+            <h2>{{ product.title }}</h2>
+            <p>Price: ${{ product.price }}</p>
+            <img src="{{ product.image_url }}" alt="{{ product.title }}" style="width:150px;height:150px;">
+            <a href="{% url 'product_details' product.id %}">See more >></a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
