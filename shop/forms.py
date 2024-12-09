@@ -10,3 +10,6 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name']
+
+class ProductSearchForm(forms.Form):
+    search = forms.CharField(label='Поиск по названию', max_length=200)
