@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Products List</title>
+    <title>Список товаров</title>
 </head>
 <body>
-    <h1>Products List</h1>
-    <a href="{% url 'add_product' %}">Add Product</a>
-    <a href="{% url 'add_category' %}">Add Category</a>
+    <h1>Список товаров</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Искать</button>
+    </form>
+    <a href="{% url 'add_product' %}">Добавить товар</a>
+    <a href="{% url 'add_category' %}">Добавить категорию</a>
     <ul>
         {% for product in products %}
         <li>
             <h2>{{ product.title }}</h2>
-            <p>Price: ${{ product.price }}</p>
+            <p>Цена: ${{ product.price }}</p>
+            <p>Остаток: {{ product.stock }}</p>
             <img src="{{ product.image_url }}" alt="{{ product.title }}" style="width:150px;height:150px;">
-            <a href="{% url 'product_details' product.id %}">See more >></a>
+            <a href="{% url 'product_details' product.id %}">Подробнее >></a>
         </li>
         {% endfor %}
     </ul>
